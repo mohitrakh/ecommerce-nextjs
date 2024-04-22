@@ -7,6 +7,6 @@ export default async function PurchasePage ({params : {id}} : {params: {id: stri
         notFound()
     }
     return (
-        <h1>hello</h1>
+        <h1>new branch</h1>
     )
 }
