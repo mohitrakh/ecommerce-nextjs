@@ -49,13 +49,13 @@ const AdminDashboard = async () => {
     const [salesData, userData, productData] = await Promise.all([
         await getSalesData(),
         await getUserData(),
-        getProductData()
+        await getProductData()
     ])
   return (
     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
      <DashboardCard title='Sales' subtitle={`${formatNumber(salesData.numberOfSales)}  `} body={`${formatCurrency(salesData.amount)} Orders`} />
      <DashboardCard title='Customers' subtitle={`${formatNumber(userData.averageValuePerUse)} Average Value`} body={formatCurrency(userData.userCount)} />
-     <DashboardCard title='Active Products' subtitle={`${formatNumber(productData.activeCount)} Inactive`} body={formatCurrency(productData.InactiveCount)} />
+     <DashboardCard title='Active Products' subtitle={`${String(productData.InactiveCount)} Inactive`} body={String(productData.activeCount)} />
     </div>
   )
 }
